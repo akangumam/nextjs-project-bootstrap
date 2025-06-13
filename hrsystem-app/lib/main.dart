@@ -5,6 +5,9 @@ import 'utils/app_theme.dart';
 import 'routes/routes.dart';
 import 'providers/auth_provider.dart';
 import 'providers/attendance_provider.dart';
+import 'providers/task_provider.dart';
+import 'providers/expense_provider.dart';
+import 'providers/leave_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => AttendanceProvider()),
+        ChangeNotifierProvider(create: (_) => TaskProvider()),
+        ChangeNotifierProvider(create: (_) => ExpenseProvider()),
+        ChangeNotifierProvider(create: (_) => LeaveProvider()),
       ],
       child: MaterialApp(
         title: 'HR System',
@@ -33,7 +39,7 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(),
           useMaterial3: true,
         ),
-        initialRoute: AppRoutes.attendance, // Temporarily set to attendance for testing
+        initialRoute: AppRoutes.splash,
         onGenerateRoute: AppRoutes.onGenerateRoute,
       ),
     );
